@@ -69,7 +69,9 @@ if (form) {
       });
       if (!response.ok) throw new Error('Submission failed');
       const data = await response.json();
-      if (!data.success) throw new Error('Submission failed');
+      if (data.success !== true && data.success !== 'true') {
+        throw new Error('Submission failed');
+      }
 
       status.className = 'form-status success';
       status.innerHTML = 'Thank you. Your enquiry has been submitted. You can also follow up by email at <a href="mailto:contact.kbdigitalworks@google.com">contact.kbdigitalworks@google.com</a>.';
@@ -83,11 +85,3 @@ if (form) {
     }
   });
 }
-
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = button.closest('.faq-item');
-    const open = item.classList.toggle('open');
-    button.setAttribute('aria-expanded', String(open));
-  });
-});
