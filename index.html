@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="KB Digital Works builds modern web applications, professional websites and reliable backend systems for businesses and startups.">
+  <title>KB Digital Works | Web Development Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #111827;
+      --surface: #182235;
+      --surface-light: #202d42;
+      --blue: #2563eb;
+      --blue-light: #60a5fa;
+      --white: #ffffff;
+      --muted: #a8b3c5;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(17,24,39,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+    }
+
+    .brand span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 21px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    .button-outline:hover { background: var(--surface); }
+
+    .hero {
+      padding: 115px 0 105px;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(37,99,235,.2), transparent 42%),
+        var(--bg);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue-light);
+      background: rgba(37,99,235,.13);
+      border: 1px solid rgba(96,165,250,.2);
+      border-radius: 30px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(38px, 6vw, 66px);
+      letter-spacing: -2.5px;
+    }
+
+    h1 span { color: var(--blue-light); }
+
+    .hero p {
+      max-width: 650px;
+      margin: 24px 0 32px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    section { padding: 85px 0; }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      letter-spacing: -1px;
+      margin-bottom: 13px;
+    }
+
+    .section-heading p, .about-text {
+      color: var(--muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .service-card, .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: .2s;
+    }
+
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(96,165,250,.5);
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: rgba(37,99,235,.18);
+      color: var(--blue-light);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3, .project-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p, .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about {
+      background: #151f30;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-text { max-width: 780px; font-size: 17px; }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tech {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 10px 17px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #dbe5f4;
+    }
+
+    .project-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-box {
+      background: linear-gradient(120deg, #1d3e78, #172b4b);
+      border: 1px solid rgba(96,165,250,.25);
+      border-radius: 18px;
+      padding: 55px 35px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: #d0dcf0;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero { padding: 85px 0 75px; }
+      .hero p { font-size: 16px; }
+      section { padding: 65px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 40px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">KB <span>DIGITAL WORKS.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#technologies">Technologies</a>
+        <a href="#projects">Projects</a>
+      </div>
+      <a href="#contact" class="button">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Independent Digital Development Studio</span>
+      <h1>Building Digital Solutions <span>That Work.</span></h1>
+      <p>
+        We help startups, digital agencies and businesses build
+        modern web applications, professional websites and reliable
+        backend systems — from small improvements to complete
+        custom solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="button">Start a Project ↗</a>
+        <a href="#services" class="button button-outline">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Who We Are</span>
+        <h2>Technology meets practical thinking.</h2>
+      </div>
+      <p class="about-text">
+        KB Digital Works is an independent digital development studio
+        focused on creating useful, reliable and scalable digital
+        experiences. We work with businesses and growing teams to turn
+        ideas into functional digital products through thoughtful
+        development, clean architecture and a focus on real business needs.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">What We Do</span>
+        <h2>Development services built around your needs.</h2>
+        <p>From a single improvement to an entire application, let's build something that moves your business forward.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">⌘</div>
+          <h3>Full-Stack Web Applications</h3>
+          <p>Custom web applications, dashboards, portals and business platforms built with modern frontend and backend technologies.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">▣</div>
+          <h3>Business Websites</h3>
+          <p>Professional business websites, landing pages and responsive online experiences using WordPress or custom development.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⌘</div>
+          <h3>Backend & API Development</h3>
+          <p>Reliable backend services, REST APIs, database integration, authentication and business logic.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚙</div>
+          <h3>Development Support</h3>
+          <p>Bug fixing, feature enhancements, maintenance, integrations and ongoing development support.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technologies" class="about">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Our Toolkit</span>
+        <h2>Technologies we work with.</h2>
+        <p>Choosing the right tools for the problem, not forcing every project into the same stack.</p>
+      </div>
+
+      <div class="tech-list">
+        <span class="tech">Angular</span>
+        <span class="tech">React</span>
+        <span class="tech">TypeScript</span>
+        <span class="tech">JavaScript</span>
+        <span class="tech">Node.js</span>
+        <span class="tech">Express.js</span>
+        <span class="tech">MySQL</span>
+        <span class="tech">MongoDB</span>
+        <span class="tech">Redis</span>
+        <span class="tech">Python</span>
+        <span class="tech">WordPress</span>
+        <span class="tech">REST APIs</span>
+        <span class="tech">Keycloak</span>
+        <span class="tech">Azure AI</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Selected Work</span>
+        <h2>Turning ideas into working products.</h2>
+        <p>Our portfolio is being prepared. Get in touch to discuss your project and development requirements.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Your next project could be here.</h3>
+        <p>We're building our public project showcase. In the meantime, let's talk about what you have in mind.</p>
+        <br>
+        <a href="#contact" class="button">Discuss a Project ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Have an idea? Let's build it.</h2>
+        <p>Tell us what you're working on. Let's explore how we can help.</p>
+        <a class="button" href="mailto:contact.kbdigitalworks@google.com?subject=Project%20Enquiry%20-%20KB%20Digital%20Works">
+          Contact KB Digital Works ↗
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <span>© <span id="year"></span> KB Digital Works. All rights reserved.</span>
+    <span>Building Digital Solutions That Work.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
