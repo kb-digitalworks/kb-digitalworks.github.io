@@ -10,7 +10,7 @@
 <meta property="og:description" content="Modern web applications, professional websites and reliable backend systems.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kb-digitalworks.github.io/">
-<link rel="icon" href="assets/images/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/images/logo/KB_Digital_Works_Favicon_512x512.png" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -18,15 +18,15 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
-</head>
+<meta property="og:image" content="https://kb-digitalworks.github.io/assets/images/logo/KB_Digital_Works_Square_Logo_500x500.png"><meta property="og:image:alt" content="KB Digital Works"><meta name="twitter:card" content="summary"></head>
 <body>
 <header class="header">
 <nav class="navbar container" aria-label="Primary navigation">
 <a class="brand" href="index.html" aria-label="KB Digital Works home">
-<span class="brand-icon">KB</span>
+<img class="brand-logo" src="assets/images/logo/KB_Digital_Works_Monogram_Dark_1000x1000.png" alt="KB Digital Works monogram" width="43" height="43">
 <span class="brand-name">DIGITAL <span>WORKS</span></span>
 </a>
-<ul class="nav-links">
+<ul class="nav-links" id="navLinks">
 <li><a class="nav-link active" href="index.html">Home</a></li>
 <li><a class="nav-link" href="about.html">About</a></li>
 <li><a class="nav-link" href="services.html">Services</a></li>
@@ -36,8 +36,8 @@
 <a class="nav-cta" href="contact.html">
 Let's Talk <i class="fa-solid fa-arrow-up-right-from-square"></i>
 </a>
-<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-<i class="fa-solid fa-bars"></i>
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks" type="button">
+<i class="fa-solid fa-bars" aria-hidden="true"></i>
 </button>
 </nav>
 </header>
@@ -377,7 +377,7 @@ Let's Talk <i class="fa-solid fa-arrow-up-right-from-square"></i>
 <div class="grid footer-grid">
 <div class="footer-about">
 <a class="brand" href="index.html">
-<span class="brand-icon">KB</span>
+<img class="brand-logo" src="assets/images/logo/KB_Digital_Works_Monogram_Dark_1000x1000.png" alt="KB Digital Works monogram" width="43" height="43">
 <span class="brand-name">DIGITAL <span>WORKS</span></span>
 </a>
 <p>Building Digital Solutions That Work.<br>Modern web applications, professional websites and reliable backend systems.</p>
@@ -414,6 +414,6 @@ Let's Talk <i class="fa-solid fa-arrow-up-right-from-square"></i>
 </div>
 </div>
 </footer>
-<script src="js/navigation-final.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script>
+<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script>
 </body>
 </html>

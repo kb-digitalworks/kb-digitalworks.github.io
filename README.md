@@ -41,7 +41,7 @@ Add project cards to `portfolio.html`. Give each `.portfolio-card` a `data-categ
 
 ## Replacing images and the logo
 
-Place project or page images in `assets/images/`. The KB monogram favicon is at `assets/images/logo/favicon.svg`. Update the same brand markup across pages if the logo or wordmark changes.
+Place project or page images in `assets/images/`. The official favicon is `assets/images/logo/KB_Digital_Works_Favicon_512x512.png`; the dark monogram is used in the navbar and footer. Update the same brand markup across pages if the logo or wordmark changes.
 
 ## Contact details
 

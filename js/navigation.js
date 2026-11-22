@@ -1,3 +1,42 @@
-const toggle=document.querySelector('.menu-toggle'),menu=document.querySelector('.nav-links');
-if(toggle&&menu){toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.innerHTML='<i class="fa-solid fa-bars"></i>';'}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.innerHTML='<i class="fa-solid fa-bars"></i>';toggle.focus();}})}
-const header=document.querySelector('.header');window.addEventListener('scroll',()=>header&&header.classList.toggle('scrolled',window.scrollY>20),{passive:true});document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.nav-links');
+
+function setMenuOpen(open) {
+  if (!toggle || !menu) return;
+  menu.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  toggle.innerHTML = open
+    ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+    : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+}
+
+if (toggle && menu) {
+  toggle.addEventListener('click', () => {
+    setMenuOpen(!menu.classList.contains('open'));
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.classList.contains('open')) {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 820) setMenuOpen(false);
+  });
+}
+
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+  if (header) header.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.querySelectorAll('.year').forEach(el => {
+  el.textContent = new Date().getFullYear();
+});
