@@ -1,4 +1,4 @@
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact.kbdigitalworks@google.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact.kbdigitalworks@gmail.com';
 const form = document.querySelector('#contactForm');
 
 if (form) {
@@ -23,21 +23,21 @@ if (form) {
     const details = form.elements.details;
     const consent = form.elements.consent;
 
-    setError('name', name.value.trim() ? '' : 'Please enter your name.');
+    setError('name', name.value.trim() ? '' : 'Enter your name');
     if (!name.value.trim()) valid = false;
 
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim());
-    setError('email', emailOk ? '' : 'Enter a valid email address.');
+    setError('email', emailOk ? '' : 'Enter a valid email address');
     if (!emailOk) valid = false;
 
-    setError('service', service.value ? '' : 'Please select a service.');
+    setError('service', service.value ? '' : 'Choose a service');
     if (!service.value) valid = false;
 
-    setError('details', details.value.trim() ? '' : 'Please describe your project.');
+    setError('details', details.value.trim() ? '' : 'Describe your project in a few lines');
     if (!details.value.trim()) valid = false;
 
     const consentError = form.querySelector('.consent-error');
-    consentError.textContent = consent.checked ? '' : 'Please provide your consent.';
+    consentError.textContent = consent.checked ? '' : 'Tick the box so we can reply';
     consent.setAttribute('aria-invalid', String(!consent.checked));
     if (!consent.checked) valid = false;
 
@@ -74,14 +74,14 @@ if (form) {
       }
 
       status.className = 'form-status success';
-      status.innerHTML = 'Thank you. Your enquiry has been submitted. You can also follow up by email at <a href="mailto:contact.kbdigitalworks@google.com">contact.kbdigitalworks@google.com</a>.';
+      status.innerHTML = 'Thank you. Your enquiry has been submitted. You can also follow up by email at <a href="mailto:contact.kbdigitalworks@gmail.com">contact.kbdigitalworks@gmail.com</a>.';
       form.reset();
     } catch (error) {
       status.className = 'form-status error';
-      status.innerHTML = 'The form could not submit. Please email your enquiry directly to <a href="mailto:contact.kbdigitalworks@google.com">contact.kbdigitalworks@google.com</a>.';
+      status.innerHTML = 'The form could not submit. Please email your enquiry directly to <a href="mailto:contact.kbdigitalworks@gmail.com">contact.kbdigitalworks@gmail.com</a>.';
     } finally {
       submit.disabled = false;
-      submit.innerHTML = 'Send Enquiry <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+      submit.innerHTML = 'Send enquiry <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
     }
   });
 }

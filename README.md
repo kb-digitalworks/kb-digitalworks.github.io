@@ -49,7 +49,7 @@ Update the business email in the HTML, `js/contact.js`, privacy page and README 
 
 ## Contact form setup
 
-The form uses FormSubmit at `https://formsubmit.co/ajax/contact.kbdigitalworks@google.com`.
+The form uses FormSubmit at `https://formsubmit.co/ajax/contact.kbdigitalworks@gmail.com`.
 
 On first submission, FormSubmit sends an activation verification email to the destination address. Follow that verification link before production use. The endpoint is configured in `js/contact.js` in one clearly named `FORM_ENDPOINT` location.
 

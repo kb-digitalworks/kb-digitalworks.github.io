@@ -8,4 +8,4 @@ The site is a static website and works directly with GitHub Pages.
 4. Select `main` and `/ (root)`.
 5. Save and wait for deployment.
 
-The contact form uses FormSubmit to deliver enquiries to `contact.kbdigitalworks@google.com`. FormSubmit may require manual email verification on first use: check the destination inbox for its activation message and follow the verification link. Live email delivery has not been verified by this project check.
+The contact form uses FormSubmit to deliver enquiries to `contact.kbdigitalworks@gmail.com`. FormSubmit may require manual email verification on first use: check the destination inbox for its activation message and follow the verification link. Live email delivery has not been verified by this project check.

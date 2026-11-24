@@ -7,8 +7,8 @@ function setMenuOpen(open) {
   toggle.setAttribute('aria-expanded', String(open));
   toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   toggle.innerHTML = open
-    ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
-    : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    ? '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>'
+    : '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
 }
 
 if (toggle && menu) {
