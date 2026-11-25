@@ -20,9 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/animations.css?v=6">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/fx.css">
+<link rel="stylesheet" href="css/fx.css?v=6">
+<link rel="stylesheet" href="css/scenes.css?v=7">
 </head>
 <body class="has-dark-hero">
 <header class="header">
@@ -60,11 +61,16 @@
 <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Businesses</span>
 </div>
 </div>
-<div class="hero-orb" aria-hidden="true">
-<canvas class="orb" data-shape="cube" data-scale="0.4"></canvas>
-<span class="orb-chip" style="left:4%;top:16%">white-label</span>
-<span class="orb-chip" style="right:0;top:52%">MVP</span>
-<span class="orb-chip" style="left:14%;bottom:8%">redesign</span>
+<div class="scene-ring" role="img" aria-label="A rotating carousel of the six project types on this page: agency builds, client site support, MVPs, admin panels, redesigns and integrations">
+<div class="ring-floor" aria-hidden="true"></div>
+<div class="ring-tilt" aria-hidden="true"><div class="ring">
+<div class="ring-card" style="--i:0"><div class="rc-shot" data-tone="cobalt"><div class="win site"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Agency, white-label</small><strong>Site from agency designs</strong></div></div>
+<div class="ring-card" style="--i:1"><div class="rc-shot" data-tone="ink"><div class="win code"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Agency, white-label</small><strong>Ongoing client site work</strong></div></div>
+<div class="ring-card" style="--i:2"><div class="rc-shot" data-tone="cobalt"><div class="win dash"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Founder, MVP</small><strong>First version of a product</strong></div></div>
+<div class="ring-card" style="--i:3"><div class="rc-shot" data-tone="amber"><div class="win dash"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Founder, dashboard</small><strong>Admin panel for a product</strong></div></div>
+<div class="ring-card" style="--i:4"><div class="rc-shot" data-tone="teal"><div class="win site"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Business, redesign</small><strong>Website that brings enquiries</strong></div></div>
+<div class="ring-card" style="--i:5"><div class="rc-shot" data-tone="ink"><div class="win code"><i></i><i></i><i></i><i></i></div></div><div class="rc-cap"><small>Business, integration</small><strong>Connecting business systems</strong></div></div>
+</div></div>
 </div>
 </div>
 </section>
@@ -202,6 +208,6 @@
 </div>
 </div>
 </footer>
-<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js"></script><script src="js/portfolio.js"></script>
+<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js?v=6"></script><script src="js/portfolio.js?v=6"></script>
 </body>
 </html>

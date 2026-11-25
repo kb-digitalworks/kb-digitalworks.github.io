@@ -20,9 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/animations.css?v=6">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/fx.css">
+<link rel="stylesheet" href="css/fx.css?v=6">
+<link rel="stylesheet" href="css/scenes.css?v=7">
 </head>
 <body class="has-dark-hero">
 <header class="header">
@@ -60,11 +61,20 @@
 <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>White-label ready</span>
 </div>
 </div>
-<div class="hero-orb" aria-hidden="true">
-<canvas class="orb" data-shape="sphere"></canvas>
-<span class="orb-chip" style="left:2%;top:18%">frontend</span>
-<span class="orb-chip" style="right:0;top:46%">backend</span>
-<span class="orb-chip" style="left:12%;bottom:10%">deployment</span>
+<div class="scene3d scene-about" role="img" aria-label="How the studio works: a requirements checklist, connected to a code editor, connected to a live website">
+<div class="scene-world" aria-hidden="true">
+<div class="s-plate" style="left:-275px;top:-110px;width:550px;height:220px"></div>
+<div class="s-wire" style="left:-120px;top:0;width:55px;--z:40px"></div>
+<div class="s-wire w2" style="left:65px;top:0;width:55px;--z:40px"></div>
+<div class="s-station s-up" style="left:-250px;top:-85px;--z:40px;--d:0ms"><p class="s-title">brief.md</p><div class="t-req"><span class="done">Bookings</span><span class="done">Sign-in</span><span class="done">Admin panel</span><span>Payments</span></div><div class="tag3d"><span>Requirements</span></div></div>
+<div class="s-station s-up dark-face" style="left:-65px;top:-85px;--z:40px;--d:150ms"><p class="s-title">api/bookings.ts</p><div class="t-code"><span class="b">export</span> <span class="b">async</span>
+<span class="w">function</span> list() {
+  <span class="b">return</span> db
+   .bookings
+   .find({ <span class="y">month</span> })
+}<span class="cursor"></span></div><div class="tag3d"><span>Build</span></div></div>
+<div class="s-station s-up" style="left:120px;top:-85px;--z:40px;--d:300ms"><p class="s-title">yoursite.com</p><div class="t-browser"><div><span class="s-line ink w70"></span><span class="s-line"></span><span class="s-line w50"></span><span class="s-btn"></span></div></div><span class="t-live">Live</span><div class="tag3d"><span>Launch</span></div></div>
+</div>
 </div>
 </div>
 </section>
@@ -245,6 +255,6 @@
 </div>
 </div>
 </footer>
-<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js"></script>
+<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js?v=6"></script>
 </body>
 </html>

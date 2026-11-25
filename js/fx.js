@@ -68,6 +68,116 @@
     });
   }
 
+  /* ---------- Page scenes: layers lift apart on load, world tilts toward the pointer ---------- */
+  document.querySelectorAll('.scene3d, .scene-ring, .scene-mail').forEach(scene => {
+    const ring = scene.classList.contains('scene-ring') || scene.classList.contains('scene-mail');
+    if (!ring) {
+      if (reduce) scene.classList.add('is-open');
+      else requestAnimationFrame(() => setTimeout(() => scene.classList.add('is-open'), 300));
+    }
+    if (reduce || !fine) return;
+    const host = scene.closest('.page-hero') || scene;
+    const cs = getComputedStyle(scene);
+    const a = parseFloat(cs.getPropertyValue(ring ? '--tx' : '--rx'));
+    const b = parseFloat(cs.getPropertyValue(ring ? '--ty' : '--rz'));
+    let frame = 0;
+    host.addEventListener('pointermove', e => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const r = scene.getBoundingClientRect();
+        const x = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+        const y = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+        if (ring) {
+          scene.style.setProperty('--tx', (a - y * 6) + 'deg');
+          scene.style.setProperty('--ty', (b + x * 14) + 'deg');
+        } else {
+          scene.style.setProperty('--rx', (a - y * 5) + 'deg');
+          scene.style.setProperty('--rz', (b + x * 6) + 'deg');
+        }
+      });
+    });
+    host.addEventListener('pointerleave', () => {
+      scene.style.removeProperty(ring ? '--tx' : '--rx');
+      scene.style.removeProperty(ring ? '--ty' : '--rz');
+    });
+  });
+
+  /* ---------- Services: the cube turns from service to service ---------- */
+  const cube = document.querySelector('.cube');
+  if (cube) {
+    const stage = cube.closest('.cube-stage');
+    const buttons = [...document.querySelectorAll('.cube-nav button')];
+    // Rotation that brings each face to the front: website, web app, dashboard, API, support, AI
+    const turns = [[0, 0], [0, -90], [0, -180], [0, 90], [-90, 0], [90, 0]];
+    let face = 0, view = [-16, -24], paused = false, resumeAt = 0;
+    const render = () => {
+      const [fx, fy] = turns[face];
+      cube.style.transform = `rotateX(${view[0]}deg) rotateY(${view[1]}deg) rotateX(${fx}deg) rotateY(${fy}deg)`;
+      buttons.forEach((b, i) => {
+        b.classList.toggle('on', i === face);
+        b.setAttribute('aria-pressed', String(i === face));
+      });
+    };
+    buttons.forEach((b, i) => b.addEventListener('click', () => {
+      face = i;
+      resumeAt = performance.now() + 8000;
+      render();
+    }));
+    stage.addEventListener('pointerenter', () => { paused = true; });
+    stage.addEventListener('pointerleave', () => { paused = false; view = [-16, -24]; render(); });
+    if (fine && !reduce) {
+      stage.addEventListener('pointermove', e => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        view = [-16 - y * 16, -24 + x * 28];
+        render();
+      });
+    }
+    render();
+    if (!reduce) setInterval(() => {
+      if (paused || performance.now() < resumeAt || document.hidden) return;
+      face = (face + 1) % turns.length;
+      render();
+    }, 2800);
+  }
+
+  /* ---------- Home technology: list names and 3D blocks light each other up ---------- */
+  const city = document.querySelector('.tech-city');
+  if (city) {
+    const blocks = [...city.querySelectorAll('.blk')];
+    const names = [...document.querySelectorAll('.tech-split .tech-tags span')];
+    const match = (span, blk) => span.textContent.includes(blk.dataset.tech.replace(' APIs', ''));
+    const light = blk => {
+      blocks.forEach(b => b.classList.toggle('hot', b === blk));
+      names.forEach(n => n.classList.toggle('lit', !!blk && match(n, blk)));
+    };
+    let held = false, step = 0, timer = 0;
+    names.forEach(n => {
+      n.addEventListener('pointerenter', () => {
+        held = true;
+        blocks.forEach(b => b.classList.toggle('hot', match(n, b)));
+        names.forEach(m => m.classList.toggle('lit', m === n));
+      });
+      n.addEventListener('pointerleave', () => { held = false; light(null); });
+    });
+    blocks.forEach(b => {
+      b.addEventListener('pointerenter', () => { held = true; light(b); });
+      b.addEventListener('pointerleave', () => { held = false; light(null); });
+    });
+    // When nobody is pointing, walk through the stack one block at a time
+    if (!reduce && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => {
+        clearInterval(timer);
+        if (!en.isIntersecting) return light(null);
+        timer = setInterval(() => {
+          if (held) return;
+          light(blocks[step++ % blocks.length]);
+        }, 1400);
+      }, { threshold: 0.3 }).observe(city);
+    }
+  }
+
   /* ---------- Point-cloud objects ---------- */
   const fib = n => {
     const pts = [];

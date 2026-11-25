@@ -20,9 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/animations.css?v=6">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/fx.css">
+<link rel="stylesheet" href="css/fx.css?v=6">
+<link rel="stylesheet" href="css/scenes.css?v=7">
 </head>
 <body class="has-dark-hero">
 <header class="header">
@@ -59,11 +60,24 @@
 <a class="btn btn-secondary" href="#websites">Browse services</a>
 </div>
 </div>
-<div class="hero-orb" aria-hidden="true">
-<canvas class="orb" data-shape="torus" data-scale="0.42"></canvas>
-<span class="orb-chip" style="left:0;top:14%">websites</span>
-<span class="orb-chip" style="right:2%;top:40%">web apps</span>
-<span class="orb-chip" style="left:10%;bottom:12%">REST APIs</span>
+<div class="svc-cube-scene">
+<div class="cube-stage" role="img" aria-label="A rotating cube with one service on each face: website, web app, dashboard, REST API, support and the AI add-on">
+<div class="cube-shadow" aria-hidden="true"></div>
+<div class="cube-orbit" aria-hidden="true"><i></i><i></i></div>
+<div class="cube" aria-hidden="true">
+<div class="cube-core"><i class="cc0"></i><i class="cc1"></i><i class="cc2"></i><i class="cc3"></i><i class="cc4"></i><i class="cc5"></i></div>
+<div class="cf f-front"><p class="cf-head"><b>01</b>Website</p><div class="cf-mock"><div class="t-browser"><div><span class="s-line ink w70"></span><span class="s-line w50"></span><span class="s-line"></span><span class="s-btn"></span></div></div></div><p class="cf-stack">WordPress · HTML · CSS</p></div>
+<div class="cf f-right"><p class="cf-head"><b>02</b>Web app</p><div class="cf-mock"><div class="t-signin"><i></i><span></span><span></span><b></b></div></div><p class="cf-stack">React · Angular · Node.js</p></div>
+<div class="cf f-back"><p class="cf-head"><b>03</b>Dashboard</p><div class="cf-mock"><div class="t-bars"><i style="height:40%"></i><i style="height:62%"></i><i style="height:50%"></i><i style="height:78%"></i><i style="height:70%"></i><i style="height:95%"></i></div></div><p class="cf-stack">React · Keycloak</p></div>
+<div class="cf f-left"><p class="cf-head"><b>04</b>REST API</p><div class="cf-mock"><div class="t-code"><span class="w">GET /api/orders</span>
+<span class="g">200 OK</span>
+{ <span class="b">"id"</span>: <span class="y">1048</span>,
+  <span class="b">"paid"</span>: <span class="y">true</span> }</div></div><p class="cf-stack">Node.js · Express · MySQL</p></div>
+<div class="cf f-top"><p class="cf-head"><b>05</b>Support</p><div class="cf-mock"><div class="t-checks"><span><i></i></span><span><i style="flex:.7"></i></span><span><i></i></span><span><i style="flex:.5"></i></span></div></div><p class="cf-stack">Fixes · features · upgrades</p></div>
+<div class="cf f-bottom"><p class="cf-head"><b>+</b>AI add-on</p><div class="cf-mock"><div class="t-chat"><i></i><i></i><i></i></div></div><p class="cf-stack">Python · LangChain · Azure AI</p></div>
+</div>
+</div>
+<div class="cube-nav" role="group" aria-label="Turn the cube to a service"><button type="button" data-face="0" class="on" aria-pressed="true">Website</button><button type="button" data-face="1" aria-pressed="false">Web app</button><button type="button" data-face="2" aria-pressed="false">Dashboard</button><button type="button" data-face="3" aria-pressed="false">REST API</button><button type="button" data-face="4" aria-pressed="false">Support</button><button type="button" data-face="5" aria-pressed="false">AI add-on</button></div>
 </div>
 </div>
 </section>
@@ -329,6 +343,6 @@
 </div>
 </div>
 </footer>
-<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js"></script>
+<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js?v=6"></script>
 </body>
 </html>

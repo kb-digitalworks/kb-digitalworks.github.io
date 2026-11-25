@@ -20,9 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/animations.css?v=6">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/fx.css">
+<link rel="stylesheet" href="css/fx.css?v=6">
+<link rel="stylesheet" href="css/scenes.css?v=7">
 </head>
 <body class="has-dark-hero">
 <header class="header">
@@ -59,11 +60,27 @@
 <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Clients in any time zone</span>
 </div>
 </div>
-<div class="hero-orb" aria-hidden="true">
-<canvas class="orb" data-shape="helix" data-scale="0.4"></canvas>
-<span class="orb-chip" style="left:6%;top:20%">your brief</span>
-<span class="orb-chip" style="right:4%;top:48%">our build</span>
-<span class="orb-chip" style="left:12%;bottom:12%">your launch</span>
+<div class="scene-mail" role="img" aria-label="An envelope opens and a project brief slides out of it: name, company, the service needed and a short description">
+<div class="mail-glow" aria-hidden="true"></div>
+<div class="mail-sway" aria-hidden="true">
+<div class="env">
+<div class="env-back"></div>
+<div class="letter">
+<p class="s-title">Project brief</p>
+<div class="f-form">
+<label>Name<span>Dana Whitfield</span></label>
+<label>Company<span>Whitfield Studio</span></label>
+<label class="full">Service<span>Full-stack web app or MVP</span></label>
+<label class="full area">Project details<span>A booking portal with an admin panel for our team…</span></label>
+</div>
+</div>
+<div class="env-front"><span class="env-mark">contact.kbdigitalworks@gmail.com</span></div>
+<div class="env-flap"><span class="seal"><img src="assets/images/logo/KB_Digital_Works_Monogram_Dark_1000x1000.png" alt=""></span></div>
+</div>
+</div>
+<span class="orb-chip mail-chip m1" aria-hidden="true">your brief</span>
+<span class="orb-chip mail-chip m2" aria-hidden="true">reply by email</span>
+<span class="orb-chip mail-chip m3" aria-hidden="true">scope and plan</span>
 </div>
 </div>
 </section>
@@ -174,6 +191,6 @@
 </div>
 </div>
 </footer>
-<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js"></script><script src="js/contact.js"></script>
+<script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/animations.js"></script><script src="js/fx.js?v=6"></script><script src="js/contact.js"></script>
 </body>
 </html>
